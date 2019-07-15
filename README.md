@@ -27,7 +27,7 @@ To run, simply run `run.sh` with a supplied authentication token and a directory
 
 ## Use
 
-The Jupyter Notebook should then be running on port 8080. You can visit it by simply going to
+The Jupyter Notebook should then be running on port 8888. You can visit it by simply going to
 
 http://127.0.0.1:8888/
 
