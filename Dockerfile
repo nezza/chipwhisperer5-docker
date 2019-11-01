@@ -15,12 +15,12 @@ COPY 99-newae.rules /etc/udev/rules.d/99-newae.rules
 # Download chipwhisperer
 RUN mkdir -p /opt/chipwhisperer
 WORKDIR /opt/chipwhisperer
-RUN git clone --recursive --depth=1 --branch cw5dev https://github.com/newaetech/chipwhisperer.git 
+RUN git clone --recursive --depth=1 https://github.com/newaetech/chipwhisperer.git
 
 # Install chipwhisperer
 WORKDIR /opt/chipwhisperer/chipwhisperer/
 RUN pip3 install -r software/requirements.txt 
-RUN python3 software/setup.py develop
+RUN python3 setup.py develop
 
 # Install jupyter and the jupyter dependencies
 WORKDIR /opt/chipwhisperer/chipwhisperer/jupyter
