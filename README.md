@@ -19,10 +19,10 @@ docker build -t cw5 .
 
 ## Run
 
-To run, simply run `run.sh` with a supplied authentication token and a directory that should be used as the workspace. Make sure that you supply an *absolute* path.
+To run, simply run `run.sh` with a supplied authentication token and a directory that should be used as the workspace. If password is not supplied, one will be generated automatically.
 
 ```
-./run.sh testpassword /home/chipwhisperer/chipwhisperer
+./run.sh /home/chipwhisperer/chipwhisperer testpassword
 ```
 
 ## Use
@@ -40,7 +40,7 @@ docker build -t cw5 .
 
 # Clone example projects
 git clone --recursive https://github.com/newaetech/chipwhisperer.git
-./run.sh testpassword ${PWD}/chipwhisperer
+./run.sh ${PWD}/chipwhisperer testpassword
 
 # Now go to http://127.0.0.1:8888/ in a browser!
 ```
