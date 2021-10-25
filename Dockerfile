@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:20.04
 
 RUN apt-get update
 # Avoid problem with tzdata install...
@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 
 # Install dependencies
 RUN apt-get install -y python3 python3-pip python3-tk wget git pkg-config libfreetype6-dev libpng-dev libusb-1.0.0 libusb-1.0.0-dev
-RUN apt-get install -y avr-libc gcc-avr gcc-arm-none-eabi
+RUN apt-get install -y avr-libc gcc-avr gcc-arm-none-eabi gfortran libopenblas-dev liblapack-dev
 
 # Copy udev rules
 COPY 99-newae.rules /etc/udev/rules.d/99-newae.rules
@@ -19,6 +19,9 @@ RUN git clone --recursive --depth=1 https://github.com/newaetech/chipwhisperer.g
 
 # Install chipwhisperer
 WORKDIR /opt/chipwhisperer/chipwhisperer/
+# Dependencies with right version numbers
+RUN pip3 install "pandas<1.1" "numpy<1.21" "matplotlib<3.4"
+
 RUN pip3 install -r software/requirements.txt 
 RUN python3 setup.py develop
 
