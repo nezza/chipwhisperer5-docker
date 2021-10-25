@@ -22,4 +22,7 @@ docker run -i -t -p 8888:8888 --privileged \
 	-v /etc/passwd:/etc/passwd:ro \
 	-v /etc/group:/etc/group:ro \
 	-v /etc/group-:/etc/group-:ro \
+	--name chipwhisperer \
 	cw5
+
+docker container rm chipwhisperer
