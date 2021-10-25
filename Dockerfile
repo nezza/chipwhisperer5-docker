@@ -35,4 +35,4 @@ RUN mkdir -p /home
 RUN chmod 777 /home
 
 # Entrypoint is directly the jupyter notebook
-CMD jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser --NotebookApp.token=${TOKEN}
+CMD jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser ${TOKEN_OPT}
